@@ -1047,7 +1047,7 @@
 	)
 	(wire
 		(pts
-			(xy 153.67 105.41) (xy 217.17 105.41)
+			(xy 153.67 105.41) (xy 190.5 105.41)
 		)
 		(stroke
 			(width 0)
@@ -1057,7 +1057,7 @@
 	)
 	(wire
 		(pts
-			(xy 217.17 105.41) (xy 217.17 78.74)
+			(xy 190.5 105.41) (xy 190.5 83.82)
 		)
 		(stroke
 			(width 0)
@@ -1067,23 +1067,13 @@
 	)
 	(wire
 		(pts
-			(xy 204.47 78.74) (xy 167.64 78.74)
+			(xy 177.8 83.82) (xy 167.64 83.82)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "5ba91524-4363-4705-b368-6dcf10469685")
-	)
-	(wire
-		(pts
-			(xy 153.67 74.93) (xy 182.88 74.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6528d145-6997-4365-9203-0f4c7cb17191")
 	)
 	(wire
 		(pts
@@ -1097,17 +1087,7 @@
 	)
 	(wire
 		(pts
-			(xy 182.88 59.69) (xy 153.67 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "70c7f88a-a96b-4c5b-a6af-dee4cac54c54")
-	)
-	(wire
-		(pts
-			(xy 153.67 97.79) (xy 209.55 97.79)
+			(xy 153.67 97.79) (xy 182.88 97.79)
 		)
 		(stroke
 			(width 0)
@@ -1117,17 +1097,7 @@
 	)
 	(wire
 		(pts
-			(xy 182.88 74.93) (xy 182.88 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9331a129-db81-4ee7-ae7f-ebecb9446f43")
-	)
-	(wire
-		(pts
-			(xy 207.01 78.74) (xy 207.01 90.17)
+			(xy 180.34 83.82) (xy 180.34 90.17)
 		)
 		(stroke
 			(width 0)
@@ -1137,7 +1107,7 @@
 	)
 	(wire
 		(pts
-			(xy 153.67 107.95) (xy 212.09 107.95)
+			(xy 153.67 107.95) (xy 185.42 107.95)
 		)
 		(stroke
 			(width 0)
@@ -1147,7 +1117,7 @@
 	)
 	(wire
 		(pts
-			(xy 209.55 78.74) (xy 209.55 97.79)
+			(xy 182.88 83.82) (xy 182.88 97.79)
 		)
 		(stroke
 			(width 0)
@@ -1167,7 +1137,7 @@
 	)
 	(wire
 		(pts
-			(xy 167.64 78.74) (xy 167.64 69.85)
+			(xy 167.64 83.82) (xy 167.64 69.85)
 		)
 		(stroke
 			(width 0)
@@ -1177,7 +1147,7 @@
 	)
 	(wire
 		(pts
-			(xy 212.09 107.95) (xy 212.09 78.74)
+			(xy 185.42 107.95) (xy 185.42 83.82)
 		)
 		(stroke
 			(width 0)
@@ -1187,7 +1157,7 @@
 	)
 	(wire
 		(pts
-			(xy 207.01 90.17) (xy 153.67 90.17)
+			(xy 180.34 90.17) (xy 153.67 90.17)
 		)
 		(stroke
 			(width 0)
@@ -1195,9 +1165,19 @@
 		)
 		(uuid "f9d526bc-8d35-4b3f-8062-da0307a59e13")
 	)
+	(text "I2C0_SDA(pico)-SDI(bme)"
+		(exclude_from_sim no)
+		(at 168.148 109.982 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "762b4d39-c82b-4141-9434-e2eb37d3b2d7")
+	)
 	(symbol
 		(lib_id "0_kasa_lib-2024-:BME280")
-		(at 210.82 72.39 0)
+		(at 184.15 77.47 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1206,7 +1186,7 @@
 		(fields_autoplaced yes)
 		(uuid "375ee508-af37-4707-a0bb-b8095dfd40f3")
 		(property "Reference" "U2"
-			(at 219.71 74.9299 0)
+			(at 193.04 80.0099 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1215,7 +1195,7 @@
 			)
 		)
 		(property "Value" "BME280"
-			(at 219.71 77.4699 0)
+			(at 193.04 82.5499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1224,7 +1204,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 213.36 71.12 0)
+			(at 186.69 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1233,7 +1213,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 213.36 71.12 0)
+			(at 186.69 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1242,7 +1222,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 210.82 72.39 0)
+			(at 184.15 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
