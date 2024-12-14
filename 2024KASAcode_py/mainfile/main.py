@@ -98,7 +98,6 @@ while True:
                     print(gpstext)
                     fp = open('/sd/testaaas.txt', 'a')#ファイルが存在しない場合は新規作成
                     fp.write(str(timercount)+gpstext)#ファイルに書き込み
-
                     fp.close()#ファイルを閉じる
                     
         isFlag1=False
