@@ -1,8 +1,9 @@
 
-from machine import Pin,UART,Timer
+from machine import Pin,UART,Timer,SPI
 import micropython
 import sys
 import time
+import os,sdcard
 
 import lib_bme280_float as bme280
 from lib_lsm9ds1 import LSM9DS1
@@ -11,6 +12,11 @@ print('start')
 
 timercount = 0
 isFlag1=False
+
+bmedata = 0
+accdata = 0
+gyrdata = 0
+magdata = 0
 
 # コマンドラインに文字を出力する関数
 def timer_run(t):
@@ -24,7 +30,7 @@ def timer_run(t):
     delta = time.ticks_diff(time.ticks_ms(), start) # 時差を計算
     
     if timercount % 10 == 0:
-        print("delta:",delta)
+        #print("delta:",delta)
         isFlag1=True
     #print("acc",lsm.read_accel(),", tmp",bme.values_float[0])
     return
@@ -48,8 +54,7 @@ def seninit():
     return i2c,bme,lsm
 
 
-bmedata = 0
-lsmdata = 0
+
 
 print("begin_init")
 chkpin = Pin(25,machine.Pin.OUT)
@@ -63,7 +68,13 @@ if not (line.startswith("run")):
 i2c,bme,lsm = seninit()
 timer_base= timerinit()
 print("start_timer")
-uart1 = UART(1, baudrate=115200,tx=Pin(8),rx=Pin(9))
+
+spi = SPI(0,sck=Pin(18), mosi=Pin(19), miso=Pin(16))
+sd = sdcard.SDCard(spi, Pin(17))
+os.mount(sd, '/sd')
+
+uart0 = UART(0, baudrate=9600,tx=Pin(0),rx=Pin(1))#GPS
+uart1 = UART(1, baudrate=115200,tx=Pin(8),rx=Pin(9))#TWELITE
 print('end_init')
 chkpin.value(0)
 print('run')
@@ -72,9 +83,24 @@ print('run')
 while True:
     if isFlag1==True:#タイマ代わり
         uart1.write("count:"+str(timercount))
-        print("tt",timercount)
-        print(str(bmedata))
-        print(accdata,"\n",gyrdata,"\n",magdata)
+        #print("tt",timercount)
+        fp = open('/sd/testaaas.txt', 'a')#ファイルが存在しない場合は新規作成
+        fp.write(str(timercount)+str(bmedata))#ファイルに書き込み
+
+        fp.close()#ファイルを閉じる
+        #print(str(bmedata),accdata[1])
+        #print(accdata,"\n",gyrdata,"\n",magdata)
+        while uart0.any() > 0:
+            gpsdata = uart0.readline()#bytes型
+            gpstext=str(gpsdata)
+            if gpsdata != None:
+                if gpstext.find('GGA')>=0:
+                    print(gpstext)
+                    fp = open('/sd/testaaas.txt', 'a')#ファイルが存在しない場合は新規作成
+                    fp.write(str(timercount)+gpstext)#ファイルに書き込み
+
+                    fp.close()#ファイルを閉じる
+                    
         isFlag1=False
 
     data = uart1.read()
@@ -86,4 +112,6 @@ while True:
             uart1.write("accd:",lsm.read_accel())
         else:
             uart1.write("notcommand")
+
+
 #
