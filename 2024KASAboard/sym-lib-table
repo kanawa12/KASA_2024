@@ -2,5 +2,4 @@
   (version 7)
   (lib (name "0_kasa_lib-2024-")(type "KiCad")(uri "${KIPRJMOD}/lib/0_kasa_lib-2024-.kicad_sym")(options "")(descr ""))
   (lib (name "MCU_RaspberryPi_and_Boards")(type "KiCad")(uri "${KIPRJMOD}/lib/MCU_RaspberryPi_and_Boards.kicad_sym")(options "")(descr ""))
-  (lib (name "KASA_New_Library")(type "KiCad")(uri "${KIPRJMOD}/lib/KASA_New_Library.kicad_sym")(options "")(descr ""))
 )
